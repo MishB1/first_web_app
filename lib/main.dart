@@ -1,3 +1,5 @@
+import 'package:first_web_app/pages/home.dart';
+import 'package:first_web_app/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,11 +14,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'E-Levy Calculator | Mish Solutions',
       theme: ThemeData(    
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primaryColor: AppColors.primary  
       ),
+      home: const Home(),
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'package:first_web_app/utils/colors.dart';
+import 'package:first_web_app/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -14,9 +16,11 @@ class _NavBarState extends State<NavBar> {
     return  ScreenTypeLayout.builder(
       mobile: (BuildContext context) => mobileNavBar(),
       desktop: (BuildContext context) => desktopNavBar(),
+      tablet: (BuildContext context) => tabletNavBar(),
     );
   }
-
+  
+  //=============MOBILE VIEW===========//
   Widget mobileNavBar() {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -24,13 +28,14 @@ class _NavBarState extends State<NavBar> {
       child:  Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Icon(Icons.menu),
+          const Icon(Icons.menu,),
           navLogo(),
         ],
       ),
     );
   }
 
+  //=============DESKTOP VIEW===========//
   Widget desktopNavBar() {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -47,11 +52,41 @@ class _NavBarState extends State<NavBar> {
              // navButton(),
             ],
           ),
-          Container(
-            height: 45,
+          SizedBox(
+            height: 50,
             child: ElevatedButton(
+              style: borderedButtonStyle,
               onPressed: () {},
-              child: const Text('Get the App'),
+              child:  Text('Get the App', style: TextStyle(color: AppColors.primary),),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+   //=============TABLET VIEW===========//
+  Widget tabletNavBar() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20),
+      height: 70,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          navLogo(),
+          Row(
+            children: [
+              navButton('Event'),
+              navButton('News'),
+              navButton('Search')
+            ],
+          ),
+          SizedBox(
+            height: 50,
+            child: ElevatedButton(
+              style: borderedButtonStyle,
+              onPressed: () {},
+              child:  Text('Get the App', style: TextStyle(color: AppColors.primary),),
             ),
           )
         ],
@@ -76,9 +111,9 @@ class _NavBarState extends State<NavBar> {
 
   Widget navLogo() {
     return Container(
-      width: 110,
-      decoration: BoxDecoration(
-        image: DecorationImage(image: const AssetImage('assets/images/logo.png'))
+      width: 100,
+      decoration: const BoxDecoration(
+        image: DecorationImage(image: AssetImage('assets/images/logo.png'))
       ),
     );
   }

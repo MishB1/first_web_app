@@ -16,14 +16,12 @@ class _HomeState extends State<Home> {
     w = MediaQuery.of(context).size.width;
     h = MediaQuery.of(context).size.height;
 
-    return Scaffold(
+    return const Scaffold(
       body: SingleChildScrollView(
-        child: Container(
-          child: const Column(
-            children: [
-              NavBar()
-            ],
-          ),
+        child: Column(
+          children: [
+            NavBar()
+          ],
         )
       ),
     );

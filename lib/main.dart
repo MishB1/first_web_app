@@ -15,7 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'E-Levy Calculator | Mish Solutions',
-      theme: ThemeData(    
+      theme: ThemeData(   
+        fontFamily: 'HindSiliguri', 
+        brightness: Brightness.light ,
         primaryColor: AppColors.primary  
       ),
       home: const Home(),

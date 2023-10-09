@@ -1,4 +1,5 @@
 import 'package:first_web_app/utils/colors.dart';
+import 'package:first_web_app/utils/constants.dart';
 import 'package:first_web_app/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -19,7 +20,7 @@ class _NavBarState extends State<NavBar> {
       tablet: (BuildContext context) => tabletNavBar(),
     );
   }
-  
+
   //=============MOBILE VIEW===========//
   Widget mobileNavBar() {
     return Container(
@@ -53,7 +54,7 @@ class _NavBarState extends State<NavBar> {
             ],
           ),
           SizedBox(
-            height: 50,
+            height: 45,
             child: ElevatedButton(
               style: borderedButtonStyle,
               onPressed: () {},
@@ -76,13 +77,14 @@ class _NavBarState extends State<NavBar> {
           navLogo(),
           Row(
             children: [
-              navButton('Event'),
-              navButton('News'),
-              navButton('Search')
+              navButton('Features'),
+              navButton('About Us'),
+              navButton('Pricing'),
+              navButton('Feedback')
             ],
           ),
           SizedBox(
-            height: 50,
+            height: 45,
             child: ElevatedButton(
               style: borderedButtonStyle,
               onPressed: () {},
@@ -113,7 +115,7 @@ class _NavBarState extends State<NavBar> {
     return Container(
       width: 100,
       decoration: const BoxDecoration(
-        image: DecorationImage(image: AssetImage('assets/images/logo.png'))
+        image: DecorationImage(image: AssetImage(logo))
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:first_web_app/pages/containers/containers1.dart';
 import 'package:first_web_app/utils/constants.dart';
 import 'package:first_web_app/widgets/navbar.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,8 @@ class _HomeState extends State<Home> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            NavBar()
+            NavBar(),
+            Container1()
           ],
         )
       ),

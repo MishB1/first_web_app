@@ -1,3 +1,4 @@
+import 'package:first_web_app/pages/containers/container2.dart';
 import 'package:first_web_app/pages/containers/containers1.dart';
 import 'package:first_web_app/utils/constants.dart';
 import 'package:first_web_app/widgets/navbar.dart';
@@ -22,7 +23,8 @@ class _HomeState extends State<Home> {
         child: Column(
           children: [
             NavBar(),
-            Container1()
+            Container1(),
+            Container2()
           ],
         )
       ),

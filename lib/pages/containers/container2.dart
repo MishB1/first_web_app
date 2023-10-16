@@ -15,60 +15,44 @@ class _Container1State extends State<Container2> {
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout.builder(
-      mobile: (BuildContext context) => mobileContainer1(),
+      mobile: (BuildContext context) => mobileContainer2(),
       desktop: (BuildContext context) => desktopContainer2(),
-      tablet: (BuildContext context) => tabletContainer1() ,
+      tablet: (BuildContext context) => tabletContainer2() ,
     );
   }
 
   //=============MOBILE VIEW===========//
-  Widget mobileContainer1() {
-    return Column(
-      children: [
-        Container(
-            height: w!/1.2,
-            width: w!/1.2,
-            decoration: const BoxDecoration(
-              image: DecorationImage(image:AssetImage(illustration1), fit: BoxFit.contain),
+  Widget mobileContainer2() {
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(color: AppColors.primary),
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.only(left: 20, right: 20, bottom: 0, top: 20),
+            child: Container(
+              height: 200,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                image: DecorationImage(image: AssetImage(dashboard), fit: BoxFit.contain)
+              ),
             ),
           ),
-        const SizedBox( height: 20,),
-        Text('Calculate your \nE-levy to \nSave Money',
-        textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: w! / 10,
-            fontWeight: FontWeight.bold,
-            height: 1.2
-          ),
-        ),
-        const SizedBox(height: 10,),
-        Text('Helps you to organize \nyour income and expenses',
-        textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Colors.grey.shade400,
-            fontSize: 16,
-          ),
-        ),
-        const SizedBox(height: 20,),
-        SizedBox(
-          height: 45,
-          child: ElevatedButton.icon(
-            style: ButtonStyle(
-              backgroundColor: MaterialStatePropertyAll(AppColors.primary)
-            ),
-            onPressed: () {}, 
-            icon: const Icon(Icons.arrow_drop_down), 
-            label: const Text('Try Free Demo')),
-        ),
-        const SizedBox(height: 20,),
-        Text(' — Web, iOS and Android',
-          style: TextStyle(
-          color: Colors.grey.shade400,
-          fontSize: 16,
-        ),
-        ),
-        const SizedBox(height: 20,),
-      ],
+          Container(
+           width: double.infinity,
+           color: Colors.white,
+           padding: EdgeInsets.symmetric(vertical: 40),
+           child: Column(
+            children: [
+              companyLogo(fb),
+              companyLogo(google),
+              companyLogo(cocacola),
+              companyLogo(samsung)
+            ],
+           ),
+          )
+        ],
+      ),
     );
   }
 
@@ -139,64 +123,68 @@ class _Container1State extends State<Container2> {
   }
 
   //=============TABLET VIEW===========//
-  Widget tabletContainer1() {
-    return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: w!/20, vertical: 25),
-      child: Row(
+  Widget tabletContainer2() {
+    return Container(
+      height: 560,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: AppColors.primary
+      ),
+      child: Column(
         children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Calculate your \nE-levy to \nSave Money',
-                  style: TextStyle(
-                    fontSize: w! / 20,
-                    fontWeight: FontWeight.bold,
-                    height: 1.2
-                  ),
+        Expanded(child: Stack(
+          children: [
+            Positioned(
+              top: -20,
+              right: -20,
+              child: Container(
+                height: 320,
+                width: 320,
+                decoration: BoxDecoration(
+                  image:DecorationImage(image: AssetImage(vector1), fit: BoxFit.contain)
                 ),
-                const SizedBox(height: 10,),
-                Text('Helps you to organize your income and expenses',
-                  style: TextStyle(
-                    color: Colors.grey.shade400,
-                    fontSize: 15,
-                  ),
+              )
+            ),
+            Positioned(
+              bottom: -20,
+              left: -20,
+              child: Container(
+                height: 320,
+                width: 320,
+                decoration: BoxDecoration(
+                  image:DecorationImage(image: AssetImage(vector2), fit: BoxFit.contain)
                 ),
-                const SizedBox(height: 20,),
-                Row(
-                  children: [
-                    SizedBox(
-                      height: 45,
-                      child: ElevatedButton.icon(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStatePropertyAll(AppColors.primary)
-                        ),
-                        onPressed: () {}, 
-                        icon: const Icon(Icons.arrow_drop_down), 
-                        label: const Text('Try Free Demo')),
-                    ),
-                    const SizedBox(width: 20,),
-                    Text(' — Web, iOS and Android',
-                      style: TextStyle(
-                      color: Colors.grey.shade400,
-                      fontSize: 15,
-                    ),
+              )
+            ),
+            Positioned(
+              right: 43,
+              left: 43,
+              bottom: 0, 
+              child: Container(
+                height: 380,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  image: DecorationImage(image: AssetImage(dashboard), )
                 ),
-                  ],
-                )
-              ],
-            )
-          ),
-          Expanded(
-            child: Container(
-              height: 530,
-              decoration: const BoxDecoration(
-                image: DecorationImage(image:AssetImage(illustration1), fit: BoxFit.contain),
               ),
             )
-          )
-        ],
-      ),
+          ],
+        ),
+        ),
+        Container(
+          color: Colors.white,
+          padding: EdgeInsets.symmetric(vertical: 30),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              companyLogo(fb),
+              companyLogo(google),
+              companyLogo(cocacola),
+              companyLogo(samsung)
+            ],
+          ),
+        )
+      ]),
     );
   }
 
@@ -204,6 +192,7 @@ class _Container1State extends State<Container2> {
     return Container(
       height: 40,
       width: 160,
+      margin: EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
         image: DecorationImage(image: AssetImage(image), fit: BoxFit.contain)
       ),

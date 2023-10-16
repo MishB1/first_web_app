@@ -138,7 +138,7 @@ class _Container1State extends State<Container1> {
   //=============DESKTOP VIEW===========//
   Widget tabletContainer1() {
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: w!/20, vertical: 25),
+      padding:  EdgeInsets.symmetric(horizontal: w!/20, vertical: 5),
       child: Row(
         children: [
           Expanded(
